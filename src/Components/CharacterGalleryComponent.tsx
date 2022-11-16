@@ -1,15 +1,15 @@
-import {Character} from "./CharacterCardComponent";
+import CharacterCardComponent, {Character} from "./CharacterCardComponent";
 import React from "react";
-//import "./CharacterGallery.css"
 
+import "./CharacterGallery.css"
 
 type CharactersGalleryProps = {
     item: Character[]
 }
 
 export default function CharacterGalleryComponent(props: CharactersGalleryProps){
-    const result = props.item.map((item, index) => {
-        return <CharacterGalleryComponent item={props.item} key={index}/>
+    const result = props.item.map((character, index) => {
+        return <CharacterCardComponent characterItem={character} key={index}/>
         }
     )
     return (
@@ -17,4 +17,5 @@ export default function CharacterGalleryComponent(props: CharactersGalleryProps)
             {result}
         </div>
     )
+
 }

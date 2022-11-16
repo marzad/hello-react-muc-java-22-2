@@ -1,6 +1,5 @@
-import "./CharacterGalleryComponent"
 import React from "react";
-//import "./CharacterCard.css"
+import "./CharacterCard.css"
 
 
 export type Character = {
