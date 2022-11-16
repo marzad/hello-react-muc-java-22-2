@@ -2,14 +2,20 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {DiffieHellmanGroup} from "crypto";
-import HelloComponent from "./HelloComponent";
-import HelloWorldComponent from "./HelloWorldComponent";
-import HelloUserComponent from "./HelloUserComponent";
+import HelloComponent from "./Components/HelloComponent";
+import HelloWorldComponent from "./Components/HelloWorldComponent";
+import HelloUserComponent from "./Components/HelloUserComponent";
+import GreetingPersonComponent from "./Components/GreetingPersonComponent";
+
 
 
 // Komponente, die "App" heißt
 // Alle KOmponente werden in .tsx-Format gespeichert
 function App() {
+    const newName="Anna"
+
+    const personList = ["Anna", "Maria", "Anton", "Alex"]
+
 
   // Hier wrd Logik betrieben
   // Hier gilt reines TypeScript
@@ -20,7 +26,10 @@ function App() {
   return (
     <div className="App">
       <HelloWorldComponent/>
-      <HelloUserComponent name="Maria"/>
+{/*      <HelloUserComponent name={"Maria"}/>
+        <HelloUserComponent name={newName}/>*/}
+
+        <GreetingPersonComponent personName={personList}/>
 
       <header className="App-header">
 
