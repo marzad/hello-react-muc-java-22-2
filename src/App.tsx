@@ -1,21 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {DiffieHellmanGroup} from "crypto";
-import HelloComponent from "./Components/HelloComponent";
-import HelloWorldComponent from "./Components/HelloWorldComponent";
-import HelloUserComponent from "./Components/HelloUserComponent";
-import GreetingPersonComponent from "./Components/GreetingPersonComponent";
-
-
+/*import HelloWorldComponent from "./Components/HelloWorldComponent";
+import GreetingPersonComponent from "./Components/GreetingPersonComponent";*/
+import {RICK_AND_MORTY_CHARACTERS} from "./Components/rickAndMortyCharacters";
+import CharacterGalleryComponent from "./Components/CharacterGalleryComponent";
 
 // Komponente, die "App" heißt
 // Alle KOmponente werden in .tsx-Format gespeichert
 function App() {
-    const newName="Anna"
+    //const newName="Anna"
 
-    const personList = ["Anna", "Maria", "Anton", "Alex"]
-
+    //const personList = ["Anna", "Maria", "Anton", "Alex"]
 
   // Hier wrd Logik betrieben
   // Hier gilt reines TypeScript
@@ -23,15 +18,13 @@ function App() {
 
   // das ist ein "Template" = Schablone, kein HTML
   // Aus diesem Objekt baut REACT dann "echtes" HTML
+
   return (
     <div className="App">
-      <HelloWorldComponent/>
+      {/*<HelloWorldComponent/>*/}
 {/*      <HelloUserComponent name={"Maria"}/>
         <HelloUserComponent name={newName}/>*/}
-
-        <GreetingPersonComponent personName={personList}/>
-
-      <header className="App-header">
+{/*      <header className="App-header">
 
         <img src={logo} className="App-logo" alt="logo" />
 
@@ -47,8 +40,30 @@ function App() {
         >
           Learn React
         </a>
-      </header>
-    </div>
+      </header>*/}
+{/*
+        <div>
+            <GreetingPersonComponent personName={personList}/>
+        </div>*/}
+
+
+        <h1 className={"siteTitle"}>Rick and Morty App</h1>
+
+        <div>
+            <form >
+                <label>Select:</label>
+                <input type={"text"} name={"Kind"}/>
+            </form>
+
+        </div>
+
+
+        <div className ="charactersList">
+
+            <CharacterGalleryComponent item={RICK_AND_MORTY_CHARACTERS}/>
+
+        </div>
+        </div>
   );
 }
 
