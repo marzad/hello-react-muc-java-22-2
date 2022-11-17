@@ -58,7 +58,7 @@ function App() {
 
         <div className ="charactersList">
 
-            <CharacterGalleryComponent item={RICK_AND_MORTY_CHARACTERS}/>
+            <CharacterGalleryComponent characterItems={RICK_AND_MORTY_CHARACTERS}/>
 
         </div>
         </div>
