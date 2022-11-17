@@ -4,9 +4,11 @@ import './App.css';
 import GreetingPersonComponent from "./Components/GreetingPersonComponent";*/
 import {RICK_AND_MORTY_CHARACTERS} from "./Components/rickAndMortyCharacters";
 import CharacterGalleryComponent from "./Components/CharacterGalleryComponent";
+import CounterExample from "./CounterExample"
+import SearchCharacter from "./SearchCharacter";
 
 // Komponente, die "App" heißt
-// Alle KOmponente werden in .tsx-Format gespeichert
+// Alle Komponente werden in .tsx-Format gespeichert
 function App() {
     //const newName="Anna"
 
@@ -48,14 +50,10 @@ function App() {
 
 
         <h1 className={"siteTitle"}>Rick and Morty App</h1>
-
-        <div>
-            <form >
-                <label>Select:</label>
-                <input type={"text"} name={"Kind"}/>
-            </form>
-
-        </div>
+        <br/>
+{/*        <div>
+            {CounterExample()}
+        </div>*/}
 
 
         <div className ="charactersList">
