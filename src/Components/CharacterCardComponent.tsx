@@ -1,7 +1,8 @@
 import React, {ChangeEvent} from "react";
 import "./CharacterCard.css"
+import Character from "./model/Character"
 
-
+/*
 export type Character = {
     id : number,
     name: string,
@@ -15,7 +16,7 @@ export type Character = {
     episode: string[],
     url: string,
     created: string
-}
+}*/
 
 type CharactersCardProps = {
     characterItem: Character

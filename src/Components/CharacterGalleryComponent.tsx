@@ -1,5 +1,4 @@
 import CharacterCardComponent, {Character} from "./CharacterCardComponent";
-import SearchCharacter from "../SearchCharacter";
 import React, {ChangeEvent, useState} from "react";
 
 import "./CharacterGallery.css"
@@ -8,7 +7,7 @@ type CharactersGalleryProps = {
     characterItems: Character[]
 }
 
-export default function SearchCharacterComponent(props: CharactersGalleryProps){
+export default function CharacterGalleryComponent(props: CharactersGalleryProps){
 
     let [searchCharacter, setSearchCharacter] = useState("");
     let [filteredCharacter, setFilteredCharacter] = useState(props.characterItems);
@@ -16,17 +15,15 @@ export default function SearchCharacterComponent(props: CharactersGalleryProps){
     const textOutput = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchCharacter(event.target.value)
     }
-    let result;
+
     function deleteCharacter(id: number) {
-        const characters: any = props.characterItems.filter((character) =>{
+        const characters: Character[] = props.characterItems.filter((character) =>{
             if(character.id !== id){
                 return character
             }
         })
         setFilteredCharacter(characters)
     }
-
-
 
         const filtered = () => {
             let filteredCharacters = filteredCharacter
@@ -73,22 +70,11 @@ export default function SearchCharacterComponent(props: CharactersGalleryProps){
                     })
                 }
             }
-            return filteredCharacter.map((characterItem, index) => {
+            return filteredCharacters.map((characterItem, index) => {
                     return <CharacterCardComponent characterItem={characterItem} key={index} deleteFunction={deleteCharacter}/>
                 }
             )
         }
-
-
-    if(searchCharacter !== "") {
-        result = filtered()
-    }
-    else{
-        result = filteredCharacter.map((characterItem, index) => {
-                return <CharacterCardComponent characterItem={characterItem} key={index} deleteFunction={deleteCharacter}/>
-            }
-        )
-    }
 
     return (
         <>
@@ -96,7 +82,7 @@ export default function SearchCharacterComponent(props: CharactersGalleryProps){
             <input onChange={textOutput}/>
             </div>
             <div className={"charactersList"}>
-                {result}
+                {filtered()}
             </div>
 
         </>

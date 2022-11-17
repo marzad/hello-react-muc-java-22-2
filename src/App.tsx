@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 /*import HelloWorldComponent from "./Components/HelloWorldComponent";
 import GreetingPersonComponent from "./Components/GreetingPersonComponent";*/
 import {RICK_AND_MORTY_CHARACTERS} from "./Components/rickAndMortyCharacters";
 import CharacterGalleryComponent from "./Components/CharacterGalleryComponent";
-import CounterExample from "./CounterExample"
-import SearchCharacter from "./SearchCharacter";
+import Character from "./Components/CharacterCardComponent"
+import axios from "axios";
+
 
 // Komponente, die "App" heißt
 // Alle Komponente werden in .tsx-Format gespeichert
@@ -20,6 +21,16 @@ function App() {
 
   // das ist ein "Template" = Schablone, kein HTML
   // Aus diesem Objekt baut REACT dann "echtes" HTML
+
+    const [characters, setCharacters] = useState<Character[]>([])
+
+    function getCharacters(){
+        axios.get("https://rickandmortyapi.com/api/character")
+            .then((response) => {
+                setCharacters(response.data.results)
+                console.log(characters)
+            })
+    }
 
   return (
     <div className="App">
@@ -49,6 +60,7 @@ function App() {
         </div>*/}
 
 
+
         <h1 className={"siteTitle"}>Rick and Morty App</h1>
         <br/>
 {/*        <div>
@@ -58,7 +70,7 @@ function App() {
 
         <div className ="charactersList">
 
-            <CharacterGalleryComponent characterItems={RICK_AND_MORTY_CHARACTERS}/>
+            <CharacterGalleryComponent characterItems={characters}/>
 
         </div>
         </div>
